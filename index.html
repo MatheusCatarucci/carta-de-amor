@@ -14,312 +14,316 @@
             box-sizing: border-box;
         }
 
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
         body {
             min-height: 100vh;
-
+            min-height: 100dvh;
             display: flex;
             justify-content: center;
             align-items: center;
-
+            padding: 20px;
             font-family: Arial, Helvetica, sans-serif;
-
             background:
-                radial-gradient(circle at top,
-                    #fff0f5,
-                    transparent 40%),
-                linear-gradient(135deg,
-                    #ffe4ec,
-                    #fff8fb);
-
+                radial-gradient(circle at top, #fff0f5, transparent 40%),
+                linear-gradient(135deg, #ffe4ec, #fff8fb);
             overflow: hidden;
         }
 
         /* CARD PRINCIPAL */
-
         .container {
-            width: 90%;
-            max-width: 600px;
-
-            padding: 50px 30px;
-
+            width: min(100%, 600px);
+            padding: clamp(28px, 6vw, 50px) clamp(18px, 5vw, 30px);
             text-align: center;
-
             background: rgba(255, 255, 255, 0.9);
-
             border: 1px solid rgba(255, 255, 255, 0.9);
-
-            border-radius: 30px;
-
-            box-shadow:
-                0 20px 60px rgba(180, 70, 110, 0.18);
-
+            border-radius: clamp(20px, 5vw, 30px);
+            box-shadow: 0 20px 60px rgba(180, 70, 110, 0.18);
             backdrop-filter: blur(10px);
         }
 
         /* INTERROGAÇÃO */
-
         .emoji {
-            font-size: 75px;
-
-            margin-bottom: 20px;
-
+            font-size: clamp(52px, 15vw, 75px);
+            margin-bottom: clamp(12px, 3vw, 20px);
             animation: flutuar 2s ease-in-out infinite;
+            line-height: 1;
         }
 
         /* TÍTULO */
-
         h1 {
             color: #c2185b;
-
-            font-size: clamp(35px,
-                    7vw,
-                    58px);
-
+            font-size: clamp(30px, 8vw, 58px);
+            line-height: 1.1;
             margin-bottom: 15px;
         }
 
         /* TEXTO */
-
         .container p {
             color: #777;
-
-            font-size: 18px;
-
-            margin-bottom: 35px;
+            font-size: clamp(15px, 3.8vw, 18px);
+            line-height: 1.5;
+            margin-bottom: clamp(24px, 6vw, 35px);
         }
 
         /* BOTÕES */
-
         .botoes {
             display: flex;
-
             justify-content: center;
             align-items: center;
-
-            gap: 20px;
-
+            flex-wrap: wrap;
+            gap: 14px;
             min-height: 60px;
+            position: relative;
         }
 
         button {
             border: none;
-
-            padding: 15px 35px;
-
+            padding: 14px clamp(22px, 6vw, 35px);
             border-radius: 50px;
-
-            font-size: 18px;
-
+            font-size: clamp(15px, 4vw, 18px);
             font-weight: bold;
-
             cursor: pointer;
-
-            transition:
-                transform 0.2s,
-                box-shadow 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            white-space: nowrap;
         }
 
         /* BOTÃO SIM */
-
         #sim {
             color: white;
-
             background: #e91e63;
-
-            box-shadow:
-                0 8px 20px rgba(233,
-                    30,
-                    99,
-                    0.3);
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.3);
         }
 
         #sim:hover {
-            transform:
-                translateY(-3px) scale(1.05);
-
-            box-shadow:
-                0 12px 25px rgba(233,
-                    30,
-                    99,
-                    0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(233, 30, 99, 0.4);
         }
 
         /* BOTÃO NÃO */
-
         #nao {
             color: #555;
-
             background: #eeeeee;
-
             position: relative;
         }
 
         /* TELA DE SUCESSO */
-
         .sucesso {
             position: fixed;
-
             inset: 0;
-
             display: flex;
-
             justify-content: center;
             align-items: center;
-
-            background:
-                linear-gradient(135deg,
-                    #ff80ab,
-                    #e91e63);
-
+            padding: 20px;
+            background: linear-gradient(135deg, #ff80ab, #e91e63);
             opacity: 0;
-
             visibility: hidden;
-
-            transition:
-                opacity 0.5s ease;
-
+            transition: opacity 0.5s ease;
             z-index: 10;
         }
 
         .sucesso.ativo {
             opacity: 1;
-
             visibility: visible;
         }
 
         /* MENSAGEM */
-
         .mensagem {
+            width: min(100%, 700px);
             text-align: center;
-
             color: white;
-
-            animation:
-                aparecer 0.7s ease;
+            padding: 20px;
+            animation: aparecer 0.7s ease;
         }
 
         /* CORAÇÃO */
-
         .mensagem .coracao {
-            font-size: clamp(90px,
-                    20vw,
-                    170px);
-
+            font-size: clamp(75px, 25vw, 170px);
             display: block;
-
             margin-bottom: 10px;
-
-            animation:
-                coracao 0.8s ease-in-out infinite alternate;
+            line-height: 1;
+            animation: coracao 0.8s ease-in-out infinite alternate;
         }
 
         /* UAU */
-
         .mensagem h2 {
-            font-size: clamp(40px,
-                    8vw,
-                    70px);
-
+            font-size: clamp(38px, 10vw, 70px);
+            line-height: 1.1;
             margin-bottom: 10px;
         }
 
         .mensagem p {
             color: white;
-
-            font-size: 22px;
-
+            font-size: clamp(17px, 5vw, 22px);
+            line-height: 1.4;
             margin: 0;
         }
 
         /* CONFETES */
-
         .confete {
             position: fixed;
-
             top: -30px;
-
-            font-size: 25px;
-
+            font-size: clamp(15px, 5vw, 25px);
             pointer-events: none;
-
-            animation:
-                cair linear forwards;
-
+            animation: cair linear forwards;
             z-index: 20;
         }
 
         /* ANIMAÇÕES */
-
         @keyframes flutuar {
 
             0%,
             100% {
-                transform:
-                    translateY(0);
+                transform: translateY(0);
             }
 
             50% {
-                transform:
-                    translateY(-10px);
+                transform: translateY(-10px);
             }
         }
 
         @keyframes aparecer {
             from {
-                transform:
-                    scale(0.5);
-
+                transform: scale(0.5);
                 opacity: 0;
             }
 
             to {
-                transform:
-                    scale(1);
-
+                transform: scale(1);
                 opacity: 1;
             }
         }
 
         @keyframes coracao {
             from {
-                transform:
-                    scale(0.8) rotate(-5deg);
+                transform: scale(0.8) rotate(-5deg);
             }
 
             to {
-                transform:
-                    scale(1.15) rotate(5deg);
+                transform: scale(1.15) rotate(5deg);
             }
         }
 
         @keyframes cair {
             to {
-                transform:
-                    translateY(110vh) rotate(720deg);
-
+                transform: translateY(110vh) rotate(720deg);
                 opacity: 0;
             }
         }
 
-        /* CELULAR */
-
-        @media (max-width: 500px) {
+        /* TABLET */
+        @media (max-width: 768px) {
+            body {
+                padding: 16px;
+            }
 
             .container {
-                padding: 40px 20px;
+                max-width: 560px;
             }
 
             .botoes {
+                gap: 12px;
+            }
+        }
+
+        /* CELULAR */
+        @media (max-width: 500px) {
+            body {
+                padding: 12px;
+            }
+
+            .container {
+                width: 100%;
+                padding: 30px 18px;
+            }
+
+            .botoes {
+                width: 100%;
                 gap: 10px;
             }
 
             button {
-                padding:
-                    13px 25px;
-
-                font-size: 16px;
+                min-height: 50px;
+                padding: 12px 22px;
             }
 
+            .sucesso {
+                padding: 12px;
+            }
+
+            .mensagem {
+                padding: 10px;
+            }
+        }
+
+        /* CELULARES MUITO PEQUENOS */
+        @media (max-width: 360px) {
+            .container {
+                padding: 24px 14px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .botoes {
+                flex-direction: column;
+            }
+
+            #sim {
+                width: min(100%, 220px);
+            }
+
+            #nao {
+                width: min(100%, 220px);
+            }
+        }
+
+        /* TELAS BAIXAS / CELULAR DEITADO */
+        @media (max-height: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .emoji {
+                font-size: 48px;
+                margin-bottom: 10px;
+            }
+
+            h1 {
+                font-size: clamp(28px, 7vw, 44px);
+            }
+
+            .container p {
+                margin-bottom: 18px;
+            }
+
+            .mensagem .coracao {
+                font-size: 70px;
+            }
+        }
+
+        /* EVITA ANIMAÇÕES EXCESSIVAS QUANDO O USUÁRIO PREFERE REDUÇÃO */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
@@ -403,50 +407,29 @@
         */
 
         function fugir() {
+            const margem = 12;
 
-            const largura =
-                window.innerWidth;
+            const larguraBotao = botaoNao.offsetWidth;
+            const alturaBotao = botaoNao.offsetHeight;
 
-            const altura =
-                window.innerHeight;
+            const larguraDisponivel =
+                Math.max(margem * 2, window.innerWidth - larguraBotao - margem * 2);
 
-            const larguraBotao =
-                botaoNao.offsetWidth;
-
-            const alturaBotao =
-                botaoNao.offsetHeight;
-
-            const margem = 20;
-
+            const alturaDisponivel =
+                Math.max(margem * 2, window.innerHeight - alturaBotao - margem * 2);
 
             const x =
-                Math.random() *
-                (
-                    largura -
-                    larguraBotao -
-                    margem * 2
-                ) +
-                margem;
-
+                margem +
+                Math.random() * (larguraDisponivel - margem);
 
             const y =
-                Math.random() *
-                (
-                    altura -
-                    alturaBotao -
-                    margem * 2
-                ) +
-                margem;
+                margem +
+                Math.random() * (alturaDisponivel - margem);
 
-
-            botaoNao.style.position =
-                "fixed";
-
-            botaoNao.style.left =
-                `${x}px`;
-
-            botaoNao.style.top =
-                `${y}px`;
+            botaoNao.style.position = "fixed";
+            botaoNao.style.left = `${Math.max(margem, Math.min(x, window.innerWidth - larguraBotao - margem))}px`;
+            botaoNao.style.top = `${Math.max(margem, Math.min(y, window.innerHeight - alturaBotao - margem))}px`;
+            botaoNao.style.zIndex = "30";
         }
 
 
@@ -496,6 +479,20 @@
                 fugir();
             }
         );
+
+
+        window.addEventListener("resize", function () {
+            if (botaoNao.style.position === "fixed") {
+                const rect = botaoNao.getBoundingClientRect();
+                const margem = 12;
+
+                const maxX = Math.max(margem, window.innerWidth - rect.width - margem);
+                const maxY = Math.max(margem, window.innerHeight - rect.height - margem);
+
+                botaoNao.style.left = `${Math.min(rect.left, maxX)}px`;
+                botaoNao.style.top = `${Math.min(rect.top, maxY)}px`;
+            }
+        });
 
 
         /*
